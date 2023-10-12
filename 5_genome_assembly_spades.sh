@@ -11,7 +11,7 @@
 #SBATCH --mail-user=mandyh@uga.edu
 #SBATCH --array=1-37
 
-module load SPAdes/3.14.1-GCC-8.3.0-Python-3.7.4
+module load SPAdes/3.15.5-GCC-11.3.0
 
 #set directory
 cd /scratch/mandyh/cape-resistome-lod-exp1/spades_output
@@ -24,4 +24,4 @@ export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 
 i=$(cat $ref_input/input_${SLURM_ARRAY_TASK_ID})
 
-python /apps/eb/SPAdes/3.14.1-GCC-8.3.0-Python-3.7.4/bin/spades.py --meta --threads 16 --memory 15 --only-assembler -1 $input/M$i\_R1_pair_trim.fastq.gz -2 $input/M$i\_R2_pair_trim.fastq.gz -o ./M$i
+python /apps/eb/SPAdes/3.15.5-GCC-11.3.0/bin/metaspades.py --meta --threads 16 --memory 15 --only-assembler -1 $input/$i\_R1_pair_trim.fastq.gz -2 $input/$i\_R2_pair_trim.fastq.gz -o ./$i
