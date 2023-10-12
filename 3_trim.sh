@@ -14,9 +14,9 @@
 module load Trimmomatic/0.39-Java-13
 
 #Set directory
-cd /scratch/mandyh/cape-resistome-lod-exp
+cd /scratch/mandyh/cape-resistome-lod-exp1
 
-ref_input='/scratch/mandyh/cape-resistome-lod-exp/inputs'
+ref_input='/scratch/mandyh/cape-resistome-lod-exp1/inputs'
 
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 
