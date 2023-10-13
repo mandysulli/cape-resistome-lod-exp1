@@ -24,7 +24,9 @@ export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 i=$(cat $ref_input/input_${SLURM_ARRAY_TASK_ID})
 
 ##run AMRFinder
-amrfinder --update
+##amrfinder --update
+## If database is missing from /apps/eb/AMRFinderPlus/3.11.18/share/ you will not be able to fix it with the command above
+## You will need to email GACRC to install
 amrfinder --nucleotide ./$i\/contigs.fasta.HCov --output ./$i\/$i\_AMRfinder_results
 ##Compile gene list
 cat ./$i\/$i\_AMRfinder_results |cut -f6,12|sed '1d' > ./$i\/$i\_gene_list.txt
