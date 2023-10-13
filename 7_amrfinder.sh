@@ -24,6 +24,7 @@ export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 i=$(cat $ref_input/input_${SLURM_ARRAY_TASK_ID})
 
 ##run AMRFinder
+amrfinder --update
 amrfinder --nucleotide ./$i\/contigs.fasta.HCov --output ./$i\/$i\_AMRfinder_results
 ##Compile gene list
 cat ./$i\/$i\_AMRfinder_results |cut -f6,12|sed '1d' > ./$i\/$i\_gene_list.txt
